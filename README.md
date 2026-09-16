@@ -19,12 +19,10 @@ Discovery array attributes and the linear engine nltiming consumes.
 
 ## Status
 
-This repository is a development preview, not a release. The psrdata-owned
-parts of the v1 contract are implemented and tested, including stock
-Enterprise and Discovery readers and nltiming's record-engine conformance
-suite. Producer migration in MetaPulsar and vela-jax is still coordinated
-separately; pre-v1 development Feather files are intentionally not accepted
-by the v1 reader.
+Tag `v0.1.0` is the first freeze of the v1 record, feather schema, and
+linear engine. Stock Enterprise and Discovery readers and nltiming's
+record-engine conformance suite are included. Pre-v1 development Feather
+files are intentionally not accepted by the v1 reader.
 
 ## What it is
 
