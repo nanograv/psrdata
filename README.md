@@ -12,8 +12,10 @@ psr.toas, psr.residuals, psr.Mmat, psr.fitpars   # named, frozen, in the writer'
 engine = psr.linear_engine()                     # Δr = −Mmat δ, in nltiming's engine shape
 ```
 
-[`SPEC.md`](SPEC.md) is the normative description; [`SPEC-motivation.md`](SPEC-motivation.md)
-says why it is designed the way it is.
+[`docs/surfaces.md`](docs/surfaces.md) is the readable API: the Enterprise /
+Discovery array attributes and the linear engine nltiming consumes.
+[`SPEC.md`](SPEC.md) is the normative description;
+[`SPEC-motivation.md`](SPEC-motivation.md) says why it is designed the way it is.
 
 ## Status
 
@@ -36,11 +38,13 @@ Four things, each of which was being duplicated or defined one layer too high:
    reference parameter values and PINT units (`parameters`), and the residual
    centering per data set. `feather.write`/`read` are its on-disk form, schema
    `pulsardata-feather-v1`, whose columns are exactly what Enterprise's
-   `FeatherPulsar` and Discovery's `Pulsar` already read.
+   `FeatherPulsar` and Discovery's `Pulsar` already read. Array attributes:
+   [`docs/surfaces.md`](docs/surfaces.md#1-the-enterprise--discovery-array-surface).
 2. **The record's linear engine** — `PulsarData.linear_engine()` returns
    `Δr = −Mmat δ` over the record's own matrix, single-leg or composite, in
    the shape nltiming's `TimingEngine` protocol describes, without importing
-   nltiming. A combined record declares no partition: a data set's rows are
+   nltiming. Method list: [`docs/surfaces.md`](docs/surfaces.md#2-the-linear-timing-engine).
+   A combined record declares no partition: a data set's rows are
    the support of its phase-offset column (`Offset_<key>` or `PHOFF_<key>`),
    and its active linear columns are the ones nonzero on those rows.
 3. **`ParameterFact` and `ResidualCentering`** — the validated value types of
