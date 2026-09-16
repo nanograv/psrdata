@@ -39,7 +39,7 @@ jobs:
       - run: pip install -e '.[dev]'
       - run: |
           pip install 'enterprise-pulsar @ git+https://github.com/nanograv/enterprise'
-          pip install 'python-discovery @ git+https://github.com/nanograv/discovery'
+          pip install 'discovery @ git+https://github.com/nanograv/discovery'
       - run: pytest -q -m consumers
 
   package:
